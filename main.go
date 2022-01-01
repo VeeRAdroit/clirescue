@@ -13,12 +13,13 @@ func main() {
 	app.Name = "clirescue"
 	app.Usage = "CLI tool to talk to the Pivotal Tracker's API"
 
-	app.Commands = []cli.Command{
+	app.Commands = []*cli.Command{
 		{
 			Name:  "me",
 			Usage: "prints out Tracker's representation of your account",
-			Action: func(c *cli.Context) {
+			Action: func(c *cli.Context) error {
 				trackerapi.Me()
+				return nil
 			},
 		},
 	}
